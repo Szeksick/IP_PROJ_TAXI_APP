@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="base::header">
+
+    <title>Logowanie</title>
+</head>
+
+<body>
+
+<div th:replace="base:: nav"></div>
+
+<div align="center" class="container col-md-6 col-md-offset-3">
+    <h2>Logowanie</h2>
+
+    <div th:if="${param.error}">
+        Nieprawidłowe hasło
+    </div>
+
+    <div th:if="${param.logout}">
+        Zalogowałeś się
+    </div>
+
+    <div th:text="${message}">
+
+    </div>
+
+    <form method="post" th:action="@{/login}">
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="username">Login:</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="username" name="username" type="text" placeholder="Nazwa użytkownika">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="password">Hasło:</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="password" name="password" placeholder="Hasło" type="password">
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Zaloguj</button>
+        <br/>
+        <div class="row text-left">
+            <div class="col-md-12">
+                <a href="/register">Zarejestruj się</a>
+            </div>
+            <div class="col-md-12">
+                Zapomniałeś hasła? <a href="/" th:href="@{/forgot-password}">Zresetuj je</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div th:replace="base::footer"></div>
+
+</body>
+</html>

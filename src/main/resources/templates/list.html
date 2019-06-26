@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="base::header">
+    <title>Dostępne kursy</title>
+</head>
+<body>
+<div th:replace="base::nav"></div>
+<br/>
+<div class="container-float" align="center">
+    <div class="jumbotron lead">
+        <h2 align="center"> Wybierz kurs </h2>
+    </div>
+    <table class="table table-striped" style="width:100%">
+        <thead class="thead-light">
+            <tr>
+                <th>Początek</th>
+                <th>Cel</th>
+                <th>Data zamówienia</th>
+                <th>Miasto</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tr th:each="drive : ${drives}">
+            <td><a th:href="@{/detail/{id}(id=${drive.id})}">[[${drive.make}]]</a></td>
+            <td th:text="${drive.model}"></td>
+            <td th:text="${drive.orderDate}"></td>
+            <td th:text="${drive.city.title}"></td>
+            <td>
+                <a th:href="@{/update/{id}(id=${drive.id})}">Edytuj</a> -
+                <a th:href="@{/takethis/{id}(id=${drive.id})}">Przyjmij kurs</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<br/>
+<div th:replace="base::footer"></div>
+</body>
+</html>

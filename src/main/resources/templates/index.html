@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="base::header">
+    <title>OrderTaxi</title>
+
+</head>
+
+<body>
+<nav class="navbar-expand-lg bg-dark navbar-dark" th:fragment="nav">
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse"
+            type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Start</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Zaloguj</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/add">Zamów taxi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/list">Dla kierowców</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h2 align="center">Zamów Taksówkę</h2>
+    <a class="btn-primary" href="/add">Zamów</a>
+</div>
+<div class="row center">
+    <div class="col-md-12">
+        <h3>Zarejestruj się</h3>
+        <a href="/register">Rejestracja</a>
+    </div>
+    <div class="col-md-12">
+        <h3>Przeczytaj regulamin</h3>
+        <a href="/termsandconditions">Regulamin</a>
+    </div>
+</div>
+
+<div th:replace="base::footer"></div>
+</body>
+</html>
